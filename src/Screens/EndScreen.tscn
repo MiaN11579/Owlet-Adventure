@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/GDQuest/font_default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UI/PlayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=5]
+[ext_resource path="res://assets/Music&SFX/Central City.ogg" type="AudioStream" id=6]
+[ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=8]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 218, 191 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="." instance=ExtResource( 2 )]
+margin_left = 780.0
+margin_top = 567.0
+margin_right = 1140.0
+margin_bottom = 647.0
+rect_pivot_offset = Vector2( 877, 152 )
+size_flags_vertical = 3
+text = "Play Again"
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="Title" parent="." instance=ExtResource( 8 )]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_left = -301.5
+margin_top = 213.117
+margin_right = 301.5
+margin_bottom = 340.117
+text = "Congratulations!
+You finished the game!"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -33.3569
+margin_right = 180.0
+margin_bottom = 130.643
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 2 )]
+margin_right = 360.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 937, -163 )
+size_flags_vertical = 3
+text = "Play Again"
+
+[node name="MenuButton" parent="Menu" instance=ExtResource( 2 )]
+margin_top = 83.0
+margin_right = 360.0
+margin_bottom = 163.0
+rect_pivot_offset = Vector2( 937, -163 )
+size_flags_vertical = 3
+text = "Main Screen"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.0
+margin_top = 381.981
+margin_right = 180.0
+margin_bottom = 446.981
+custom_fonts/font = ExtResource( 1 )
+text = "Your final score is: %s
+You died %s times."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -12.0
+autoplay = true

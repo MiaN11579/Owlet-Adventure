@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Actors/Centipede.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/Ghost.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 33.5053, 28.0993 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.8238, 8.00127 )
+
+[node name="Ghost" type="KinematicBody2D"]
+scale = Vector2( 1.42738, 1.42738 )
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 1 )
+speed = Vector2( 150, 1400 )
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite" parent="Position2D"]
+position = Vector2( -1.08749, -28.8795 )
+scale = Vector2( 2, 2 )
+frames = ExtResource( 2 )
+animation = "Idle"
+playing = true
+
+[node name="PlayerDetector" type="Area2D" parent="Position2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/PlayerDetector"]
+position = Vector2( -0.449028, -26.8648 )
+shape = SubResource( 1 )
+
+[node name="WorldCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.770932, -26.6126 )
+shape = SubResource( 1 )
+
+[node name="StompArea2D" type="Area2D" parent="."]
+position = Vector2( 0, -66.4549 )
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="StompArea2D"]
+position = Vector2( 1.07605, 11.2301 )
+shape = SubResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -0.959067, -26.3121 )
+scale = Vector2( 0.640227, 0.860968 )
+rect = Rect2( -50, -33, 100, 66 )
+process_parent = true
+physics_process_parent = true
+
+[node name="Floor_checker" type="RayCast2D" parent="."]
+enabled = true
+collision_mask = 8
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="animation_finished" from="Position2D/Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="body_entered" from="Position2D/PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

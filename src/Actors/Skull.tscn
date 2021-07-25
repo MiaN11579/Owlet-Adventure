@@ -1,0 +1,157 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://src/Actors/Centipede.gd" type="Script" id=1]
+[ext_resource path="res://assets/Sprite/Pixel Aventure Enemies/Enemies/Skull/Idle 1 (52x54).png" type="Texture" id=2]
+[ext_resource path="res://assets/Sprite/Pixel Aventure Enemies/Enemies/Skull/Hit Wall 2 (52x54).png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 52, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 104, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 156, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 208, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 260, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 312, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 52, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 104, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 156, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 208, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 260, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 312, 0, 52, 54 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 364, 0, 52, 54 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "Death",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 53.1063, 60.8164 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 38.6712, 8.87545 )
+
+[node name="Skull" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 1 )
+speed = Vector2( 150, 1400 )
+
+[node name="Position2D" type="Position2D" parent="."]
+scale = Vector2( -1, 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Position2D"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 16 )
+animation = "Walk"
+frame = 4
+playing = true
+flip_h = true
+
+[node name="PlayerDetector" type="Area2D" parent="Position2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/PlayerDetector"]
+position = Vector2( 0, 7.54247 )
+shape = SubResource( 17 )
+
+[node name="WorldCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0572128, 7.0122 )
+shape = SubResource( 17 )
+
+[node name="StompArea2D" type="Area2D" parent="."]
+position = Vector2( 0, -66.4549 )
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="StompArea2D"]
+position = Vector2( 0.764297, 13.0408 )
+shape = SubResource( 18 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -0.235697, 0 )
+scale = Vector2( 1.05186, 1.61783 )
+rect = Rect2( -50, -33, 100, 66 )
+process_parent = true
+physics_process_parent = true
+
+[node name="Floor_checker" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 100 )
+collision_mask = 8
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="animation_finished" from="Position2D/Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="body_entered" from="Position2D/PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

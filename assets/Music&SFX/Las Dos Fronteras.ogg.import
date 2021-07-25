@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Las Dos Fronteras.ogg-eec941d7ff9cee9e589874d9d48cb68e.oggstr"
+
+[deps]
+
+source_file="res://assets/Music&SFX/Las Dos Fronteras.ogg"
+dest_files=[ "res://.import/Las Dos Fronteras.ogg-eec941d7ff9cee9e589874d9d48cb68e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

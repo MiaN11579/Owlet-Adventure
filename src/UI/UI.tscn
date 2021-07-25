@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/GDQuest/font_default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UI/PlayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/UI.gd" type="Script" id=6]
+[ext_resource path="res://assets/Tileset/Autumn/png/elements/heart.png" type="Texture" id=7]
+[ext_resource path="res://assets/Tileset/Autumn/png/elements/key.png" type="Texture" id=8]
+[ext_resource path="res://assets/Music&SFX/Game Over.ogg" type="AudioStream" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.235294 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="UI" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 1642.12
+margin_top = 56.4661
+margin_right = 1850.12
+margin_bottom = 137.466
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -237.0
+margin_top = 81.4661
+margin_right = -116.0
+margin_bottom = 112.466
+custom_fonts/font = ExtResource( 1 )
+text = "Score: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartContainer" type="HBoxContainer" parent="."]
+margin_left = 79.1282
+margin_top = 61.9116
+margin_right = 606.128
+margin_bottom = 198.912
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="one" type="TextureRect" parent="HeartContainer"]
+margin_right = 173.0
+margin_bottom = 137.0
+texture = ExtResource( 7 )
+stretch_mode = 3
+
+[node name="two" type="TextureRect" parent="HeartContainer"]
+margin_left = 177.0
+margin_right = 350.0
+margin_bottom = 137.0
+texture = ExtResource( 7 )
+stretch_mode = 3
+
+[node name="three" type="TextureRect" parent="HeartContainer"]
+margin_left = 354.0
+margin_right = 527.0
+margin_bottom = 137.0
+texture = ExtResource( 7 )
+stretch_mode = 3
+
+[node name="KeyPanel" type="Panel" parent="."]
+margin_left = 1394.76
+margin_top = 56.4661
+margin_right = 1602.76
+margin_bottom = 137.466
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -406.377
+margin_top = 81.0
+margin_right = -352.377
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 1 )
+text = ": %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 1443.17
+margin_top = 62.5595
+margin_right = 1615.17
+margin_bottom = 244.56
+rect_scale = Vector2( 0.35, 0.35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_right = 172.0
+margin_bottom = 182.0
+texture = ExtResource( 8 )
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.313726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 4 )]
+text = "Paused"
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -143.0
+margin_right = 180.0
+margin_bottom = 61.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
+margin_right = 360.0
+margin_bottom = 100.0
+size_flags_vertical = 3
+
+[node name="MainButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 2 )]
+margin_top = 104.0
+margin_right = 360.0
+margin_bottom = 204.0
+size_flags_vertical = 3
+text = "Main Screen"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
+visible = false
+margin_top = 221.0
+margin_right = 360.0
+margin_bottom = 328.0
+size_flags_vertical = 3
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -12.0

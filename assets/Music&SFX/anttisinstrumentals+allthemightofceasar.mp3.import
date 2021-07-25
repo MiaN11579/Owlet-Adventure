@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/anttisinstrumentals+allthemightofceasar.mp3-f8682091477ed71fe04c9093f68ffc8f.mp3str"
+
+[deps]
+
+source_file="res://assets/Music&SFX/anttisinstrumentals+allthemightofceasar.mp3"
+dest_files=[ "res://.import/anttisinstrumentals+allthemightofceasar.mp3-f8682091477ed71fe04c9093f68ffc8f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/Owlet_Monster.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://src/Actors/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://assets/Music&SFX/DigitalAudio/Audio/phaseJump2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/Music&SFX/MusicJingles/Audio/8-Bit jingles/jingles_NES00.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/Music&SFX/DigitalAudio/Audio/phaserUp5.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/Music&SFX/8-bit-slam.mp3" type="AudioStream" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.8624, 39.68 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 26.461, 40.6939 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32.475, 11.6026 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 2, 0 )
+collision_mask = 8
+script = ExtResource( 1 )
+speed = Vector2( 500, 1400 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -9 )
+current = true
+process_mode = 0
+limit_left = 0
+limit_top = -450
+limit_right = 9200
+limit_bottom = 1300
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+drag_margin_left = 0.0
+drag_margin_right = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1.2803, -48 )
+scale = Vector2( 3, 3 )
+frames = ExtResource( 2 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3, -40.252 )
+shape = SubResource( 1 )
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+position = Vector2( -2.06886, 8.19856 )
+collision_layer = 0
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+modulate = Color( 0.337255, 0.223529, 1, 1 )
+position = Vector2( -1, -48 )
+shape = SubResource( 2 )
+
+[node name="ThornDetector2" type="Area2D" parent="."]
+position = Vector2( -2.19371, 7.82398 )
+collision_layer = 0
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThornDetector2"]
+modulate = Color( 0.337255, 0.223529, 1, 1 )
+position = Vector2( -1, -48 )
+shape = SubResource( 2 )
+
+[node name="StompDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
+modulate = Color( 0.337255, 0.223529, 1, 1 )
+position = Vector2( -3.31901, 2.7823 )
+shape = SubResource( 3 )
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -12.0
+
+[node name="DeadSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="StompSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_dead_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_hurt_animation_finished"]
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="area_shape_entered" from="ThornDetector2" to="." method="_on_Thorn_area_shape_entered"]
+[connection signal="area_entered" from="StompDetector" to="." method="_on_StompDetector_area_entered"]

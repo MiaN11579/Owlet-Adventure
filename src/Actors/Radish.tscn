@@ -1,0 +1,165 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://src/Actors/Centipede.gd" type="Script" id=1]
+[ext_resource path="res://assets/Sprite/Pixel Aventure Enemies/Enemies/Radish/Hit (30x38).png" type="Texture" id=2]
+[ext_resource path="res://assets/Sprite/Pixel Aventure Enemies/Enemies/Radish/Run (30x38).png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 30, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 60, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 90, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 120, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 150, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 180, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 210, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 240, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 270, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 300, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 330, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 30, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 60, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 90, 0, 30, 38 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 120, 0, 30, 38 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "Run",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "Death",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 29.9734, 27.8369 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 9.40481, 5.56765 )
+
+[node name="Radish" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 1 )
+speed = Vector2( 225, 1400 )
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite" parent="Position2D"]
+position = Vector2( -2.201, -34.3534 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 18 )
+animation = "Run"
+frame = 6
+playing = true
+
+[node name="PlayerDetector" type="Area2D" parent="Position2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/PlayerDetector"]
+position = Vector2( -1, -27 )
+shape = SubResource( 19 )
+
+[node name="WorldCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, -25 )
+shape = SubResource( 19 )
+
+[node name="StompArea2D" type="Area2D" parent="."]
+position = Vector2( 0, -66.4549 )
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape2D" parent="StompArea2D"]
+position = Vector2( -1.00086, 12.79 )
+shape = SubResource( 20 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -0.884123, -26.9068 )
+scale = Vector2( 0.576512, 0.815359 )
+rect = Rect2( -50, -33, 100, 66 )
+process_parent = true
+physics_process_parent = true
+
+[node name="Floor_checker" type="RayCast2D" parent="."]
+enabled = true
+collision_mask = 8
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="animation_finished" from="Position2D/Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="body_entered" from="Position2D/PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

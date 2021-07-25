@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/GDQuest/font_default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UI/RetryButton.gd" type="Script" id=2]
+[ext_resource path="res://assets/Music&SFX/Audio/click_003.ogg" type="AudioStream" id=3]
+
+[node name="RetryButton" type="Button"]
+margin_right = 320.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+text = "Retry"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

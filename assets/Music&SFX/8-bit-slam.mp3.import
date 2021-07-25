@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8-bit-slam.mp3-19fa25204017bd26379c0e87716c4075.mp3str"
+
+[deps]
+
+source_file="res://assets/Music&SFX/8-bit-slam.mp3"
+dest_files=[ "res://.import/8-bit-slam.mp3-19fa25204017bd26379c0e87716c4075.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

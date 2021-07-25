@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/GDQuest/font_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UI/PlayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Music&SFX/Su Turno.ogg" type="AudioStream" id=5]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+margin_left = 1.49658
+margin_top = -1.49661
+margin_right = 1075.5
+margin_bottom = 660.503
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -248.5
+margin_top = 256.869
+margin_right = 248.5
+margin_bottom = 318.869
+custom_fonts/font = ExtResource( 1 )
+text = "Owlet's Adventure"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -166.5
+margin_top = -74.3007
+margin_right = 166.5
+margin_bottom = 100.699
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 2 )]
+margin_right = 333.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 937, -163 )
+size_flags_vertical = 3
+
+[node name="CreditButton2" parent="Menu" instance=ExtResource( 2 )]
+margin_top = 89.0
+margin_right = 333.0
+margin_bottom = 174.0
+rect_pivot_offset = Vector2( 937, -163 )
+size_flags_vertical = 3
+text = "Credit"
+next_scene_path = "res://src/Screens/CreditScreen.tscn"
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
