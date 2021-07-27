@@ -3,9 +3,9 @@
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Actors/Owlet_Monster.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://src/Actors/Camera2D.gd" type="Script" id=3]
-[ext_resource path="res://assets/Music&SFX/DigitalAudio/Audio/phaseJump2.ogg" type="AudioStream" id=4]
-[ext_resource path="res://assets/Music&SFX/MusicJingles/Audio/8-Bit jingles/jingles_NES00.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/Music&SFX/DigitalAudio/Audio/phaserUp5.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/Music&SFX/phaseJump2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/Music&SFX/jingles_NES00.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/Music&SFX/phaserUp5.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/Music&SFX/8-bit-slam.mp3" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/GDQuest/font_default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/GDQuest/font_title.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/Background/Horizontal Backgrounds/PNG/game_background_1/game_background_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Background/game_background_1.png" type="Texture" id=3]
 [ext_resource path="res://src/UI/PlayButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/PlayButton.gd" type="Script" id=5]
 [ext_resource path="res://assets/Music&SFX/Su Turno.ogg" type="AudioStream" id=6]

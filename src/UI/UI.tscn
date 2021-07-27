@@ -6,8 +6,8 @@
 [ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/RetryButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UI/UI.gd" type="Script" id=6]
-[ext_resource path="res://assets/Tileset/Autumn/png/elements/heart.png" type="Texture" id=7]
-[ext_resource path="res://assets/Tileset/Autumn/png/elements/key.png" type="Texture" id=8]
+[ext_resource path="res://assets/Tileset/Autumn/heart.png" type="Texture" id=7]
+[ext_resource path="res://assets/Tileset/Autumn/key.png" type="Texture" id=8]
 [ext_resource path="res://assets/Music&SFX/Game Over.ogg" type="AudioStream" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
