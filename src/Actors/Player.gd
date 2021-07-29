@@ -28,8 +28,6 @@ func _on_dead_animation_finished() -> void:
 func _physics_process(delta: float) -> void:
 	# Set animation
 	if not _dead and not _hurt:
-		if PlayerData.ladder and is_on_floor():
-			climb = true
 		if climb:
 			gravity = 0
 			if Input.is_action_pressed("climb_up"):

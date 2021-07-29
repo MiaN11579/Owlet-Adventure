@@ -1,10 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/GDQuest/font_default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/GDQuest/font_title.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/Background/game_background_1.png" type="Texture" id=3]
 [ext_resource path="res://src/UI/PlayButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UI/PlayButton.gd" type="Script" id=5]
 [ext_resource path="res://assets/Music&SFX/Su Turno.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/UI/Background.tscn" type="PackedScene" id=7]
 
@@ -16,17 +13,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background2" type="TextureRect" parent="." instance=ExtResource( 7 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Background2" parent="." instance=ExtResource( 7 )]
 margin_right = 2963.0
 margin_bottom = 1710.0
-rect_scale = Vector2( 0.64, 0.62 )
-texture = ExtResource( 3 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
@@ -57,25 +46,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuButton" type="Button" parent="Menu" instance=ExtResource( 4 )]
-margin_right = 360.0
+[node name="MenuButton" parent="Menu" instance=ExtResource( 4 )]
+margin_right = 359.0
 margin_bottom = 118.0
 rect_pivot_offset = Vector2( 937, -163 )
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 text = "Main Screen"
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 next_scene_path = "res://src/Screens/MainScreen.tscn"
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.0
 autoplay = true
-
-[connection signal="button_down" from="Menu/MenuButton" to="Menu/MenuButton" method="_on_button_down"]
-[connection signal="button_down" from="Menu/MenuButton" to="Menu/MenuButton" method="_on_PlayButton_button_down"]
-[connection signal="button_up" from="Menu/MenuButton" to="Menu/MenuButton" method="_on_button_up"]

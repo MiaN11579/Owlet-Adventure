@@ -24,6 +24,7 @@ func _ready() -> void:
 	PlayerData.connect("player_died", self, "_on_PlayerData_player_died")
 	update_score()
 	update_key()
+	update_health()
 
 
 func _on_PlayerData_player_died() -> void:

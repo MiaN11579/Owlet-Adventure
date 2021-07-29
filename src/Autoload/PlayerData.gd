@@ -9,13 +9,13 @@ var score: = 0 setget set_score
 var death: = 0 setget set_death
 var hurt: = 0 setget set_hurt
 var key: = 0 setget set_key
-var ladder: = false setget set_ladder
 
 
 func reset() -> void:
 	score = 0
 	death = 0
 	hurt = 0
+	key = 0
 
 
 func set_score(value: int) -> void:
@@ -36,7 +36,3 @@ func set_hurt(value: int) -> void:
 func set_key(value: int) -> void:
 	key = value
 	emit_signal("key_updated")
-
-
-func set_ladder(value: bool) -> void:
-	ladder = value
