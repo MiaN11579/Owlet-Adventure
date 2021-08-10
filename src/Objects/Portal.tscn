@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/GDQuest/portal.png" type="Texture" id=1]
 [ext_resource path="res://assets/GDQuest/font_default.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Portal.gd" type="Script" id=3]
+[ext_resource path="res://src/Objects/Portal.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55.8454, 83.2216 )
