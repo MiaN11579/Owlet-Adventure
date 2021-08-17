@@ -48,12 +48,14 @@ func update_key() -> void:
 
 
 func update_health() -> void:
+	print(PlayerData.hurt)
 	if PlayerData.hurt == 0:
 		three.visible = true
 	elif PlayerData.hurt == 1:
 		three.visible = false
 		two.visible = true
 	elif PlayerData.hurt == 2:
+		three.visible = false
 		two.visible = false
 		one.visible = true
 	elif PlayerData.hurt == 3:

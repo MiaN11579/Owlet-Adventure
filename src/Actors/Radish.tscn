@@ -103,7 +103,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 29.9734, 27.8369 )
+extents = Vector2( 31.2589, 27.8369 )
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 9.40481, 5.56765 )
@@ -121,18 +121,18 @@ position = Vector2( -2.201, -34.3534 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 18 )
 animation = "Run"
-frame = 6
+frame = 4
 playing = true
 
 [node name="PlayerDetector" type="Area2D" parent="Position2D"]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D/PlayerDetector"]
-position = Vector2( -1, -27 )
+position = Vector2( -2.89102, -27 )
 shape = SubResource( 19 )
 
 [node name="WorldCollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -25 )
+position = Vector2( -3, -25 )
 shape = SubResource( 19 )
 
 [node name="StompArea2D" type="Area2D" parent="."]

@@ -7,7 +7,7 @@
 extents = Vector2( 39.9633, 29.37 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 26.7068, 8.00127 )
+extents = Vector2( 17.2194, 8.00127 )
 
 [node name="Slime" type="KinematicBody2D"]
 collision_layer = 2
@@ -21,7 +21,7 @@ speed = Vector2( 150, 1400 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 2 )
 animation = "Walk"
-frame = 3
+frame = 9
 playing = true
 
 [node name="PlayerDetector" type="Area2D" parent="Position2D"]

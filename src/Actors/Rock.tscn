@@ -4,10 +4,10 @@
 [ext_resource path="res://src/Actors/Rock.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40.9772, 31.5899 )
+extents = Vector2( 42.3532, 31.5899 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 21.274, 8.91557 )
+extents = Vector2( 14.8157, 8.91557 )
 
 [node name="Rock" type="KinematicBody2D"]
 collision_layer = 2
@@ -22,7 +22,7 @@ position = Vector2( 3.45584, -32.4678 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 1 )
 animation = "Walk"
-frame = 1
+frame = 11
 playing = true
 
 [node name="PlayerDetector" type="Area2D" parent="Position2D"]

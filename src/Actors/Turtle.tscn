@@ -164,82 +164,82 @@ region = Rect2( 176, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=32]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=33]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 44, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=34]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 88, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=35]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 132, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=36]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 176, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=37]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 220, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=38]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 264, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=39]
 flags = 4
-atlas = ExtResource( 1 )
+atlas = ExtResource( 3 )
 region = Rect2( 308, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=40]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=41]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 44, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=42]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 88, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=43]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 132, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=44]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 176, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=45]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 220, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=46]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 264, 0, 44, 26 )
 
 [sub_resource type="AtlasTexture" id=47]
 flags = 4
-atlas = ExtResource( 3 )
+atlas = ExtResource( 1 )
 region = Rect2( 308, 0, 44, 26 )
 
 [sub_resource type="SpriteFrames" id=48]
@@ -256,20 +256,20 @@ animations = [ {
 }, {
 "frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
 "loop": true,
-"name": "SpikesOut",
+"name": "SpikesIn",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ) ],
 "loop": true,
-"name": "SpikesIn",
+"name": "SpikesOut",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 40.9772, 22.8333 )
+extents = Vector2( 39.6473, 22.8333 )
 
 [sub_resource type="RectangleShape2D" id=50]
-extents = Vector2( 23.2078, 7.68327 )
+extents = Vector2( 15.6167, 7.68327 )
 
 [node name="Turtle" type="KinematicBody2D"]
 collision_layer = 2
@@ -284,7 +284,7 @@ position = Vector2( 3.45584, -25.4678 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 48 )
 animation = "Walk"
-frame = 3
+frame = 4
 playing = true
 
 [node name="PlayerDetector" type="Area2D" parent="Position2D"]
@@ -307,8 +307,8 @@ position = Vector2( 3.81881, 22.4798 )
 shape = SubResource( 50 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 4.58578, -23.4261 )
-scale = Vector2( 0.783535, 0.709884 )
+position = Vector2( 4.02518, -23.7613 )
+scale = Vector2( 0.772323, 0.699726 )
 rect = Rect2( -50, -33, 100, 66 )
 process_parent = true
 physics_process_parent = true
